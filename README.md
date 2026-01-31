@@ -1,182 +1,103 @@
-# AI-invoice-generator-agent
+# Automated Invoice Generator & Email Sender (n8n)
 
-🧾 Automated Invoice Generator & Email Sender (n8n)
+An automated invoicing system built using n8n, Google Sheets, HTTP APIs, JavaScript, and Gmail.  
+This workflow generates invoices, sends them as email attachments, and updates invoice status automatically.
 
-This project is an end-to-end invoice automation system built using n8n, Google Sheets, HTTP APIs, JavaScript, and Gmail.
-It automatically generates invoices, sends them via email as attachments, and updates the invoice status back into Google Sheets.
+---
 
-Perfect for freelancers, startups, agencies, or SaaS billing workflows.
+## Project Overview
 
-🚀 Project Overview
+This project automates the entire invoice lifecycle:
+- Reads invoice data from Google Sheets
+- Generates professional invoices dynamically
+- Sends invoices via email
+- Updates invoice status after sending
 
-The workflow reads invoice data from Google Sheets, dynamically generates a professional invoice, sends it via Gmail to the client, and updates the invoice status once the email is sent.
-All steps are fully automated with minimal manual effort.
+It is ideal for freelancers, agencies, and small businesses.
 
-🔁 Workflow Architecture
-1. Manual Trigger
+---
 
-Workflow starts when “Execute workflow” is clicked.
+## Workflow Breakdown
 
-Can be replaced with Cron trigger for scheduled billing cycles.
+### Trigger
+- Workflow starts when "Execute workflow" is clicked.
+- Can be scheduled using a Cron trigger for monthly billing.
 
-2. Fetch Invoice Data from Google Sheets
+### Get Rows from Google Sheets
+- Reads invoice details such as:
+  - Client name
+  - Email
+  - Invoice number
+  - Amount
+  - Due date
+  - Status
 
-Reads rows containing:
+### Loop Over Items
+- Processes invoices one-by-one.
+- Ensures accurate status updates.
 
-Client name
+### Template Rendering
+- Generates invoice layout dynamically.
+- Injects client and billing details into the template.
 
-Email address
+### HTTP Request
+- Sends invoice data to an API or service.
+- Generates a downloadable PDF invoice.
 
-Invoice number
+### JavaScript Code Node
+- Formats email subject and body.
+- Attaches the generated invoice PDF.
 
-Amount
+### Send Email via Gmail
+- Sends a professional invoice email with PDF attachment.
 
-Due date
+### Update Row in Google Sheets
+- Updates invoice status (SENT / UNREAD).
+- Logs timestamp for record keeping.
 
-Status
+---
 
-Each row represents one invoice.
+## Invoice Details
 
-3. Loop Over Invoices
+- Client information
+- Invoice number
+- Invoice date and due date
+- Service description
+- Tax calculation
+- Total payable amount
 
-Processes invoices one by one.
+---
 
-Ensures safe execution and accurate status tracking.
+## Tech Stack
 
-4. Template Rendering (Invoice Layout)
+- n8n
+- Google Sheets API
+- Gmail API
+- HTTP API
+- JavaScript
 
-Uses a Templated / Render node to create a structured invoice layout.
+---
 
-Dynamically injects:
+## Key Features
 
-Client details
+- Automated invoice generation
+- PDF invoice creation
+- Email delivery with attachments
+- Status tracking in Google Sheets
+- Minimal manual effort
 
-Invoice ID
+---
 
-Amount, tax, and total
+## Use Cases
 
-Due date
+- Freelancer billing
+- Monthly retainers
+- Agency invoicing
+- Subscription services
 
-5. HTTP Request (Invoice Generation)
+---
 
-Sends invoice data to an external service or internal endpoint.
+## Author
 
-Generates a PDF invoice based on the template.
-
-Returns a downloadable invoice file.
-
-6. JavaScript Code Node
-
-Formats email content.
-
-Attaches the generated invoice PDF.
-
-Prepares clean subject & body text.
-
-7. Send Invoice via Gmail
-
-Sends a professional invoice email with:
-
-Subject line
-
-Personalized message
-
-PDF invoice attachment
-
-📧 Example:
-
-Invoice INV-0158 – Payment Due on 28-11-2025
-
-8. Update Invoice Status in Google Sheets
-
-Updates the row with:
-
-Status: SENT / UNREAD
-
-Timestamp
-
-Maintains a clear billing audit trail.
-
-📧 Sample Email Output
-
-Personalized greeting
-
-Invoice reference number
-
-Amount & due date mentioned clearly
-
-PDF invoice attached
-
-This ensures professional and reliable communication with clients.
-
-📄 Sample Invoice Details
-
-Client Name & Address
-
-Invoice Number
-
-Invoice Date & Due Date
-
-Line Items (Services)
-
-Tax calculation
-
-Total payable amount
-
-🛠️ Tech Stack
-
-n8n – Workflow automation
-
-Google Sheets API – Invoice data storage
-
-Gmail API – Email delivery
-
-HTTP API – Invoice PDF generation
-
-JavaScript – Data formatting & logic
-
-✨ Key Features
-
-✅ Automated invoice generation
-
-✅ Dynamic PDF invoices
-
-✅ Email delivery with attachments
-
-✅ Google Sheets status tracking
-
-✅ Scalable billing workflow
-
-✅ Minimal manual intervention
-
-🔮 Future Enhancements
-
-Add Cron scheduling (monthly billing)
-
-Integrate payment links (Stripe/Razorpay)
-
-Add payment confirmation tracking
-
-Auto-send reminders for overdue invoices
-
-Store invoices in Google Drive
-
-🎯 Use Cases
-
-Freelancers sending monthly invoices
-
-Startup client billing
-
-Agency retainers
-
-Subscription-based services
-
-Automated finance workflows
-
-👩‍💻 Author
-
-Triman Kaur
+Triman Kaur  
 Web Developer | Automation & AI Enthusiast
-
-
-
