@@ -180,6 +180,3 @@ Web Developer | Automation & AI Enthusiast
 
 
 
-Is this conversation helpful so far?
-
-ChatGPT can make mistakes. C
